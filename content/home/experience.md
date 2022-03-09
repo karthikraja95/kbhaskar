@@ -19,6 +19,22 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
+  title = "Data Scientist"
+  company = "CIBC"
+  company_url = "https://www.cibc.com/en/personal-banking.html"
+  location = "Toronto"
+  date_start = "2020-11-23"
+  date_end = "2022-04-04"
+  description = """
+  * Built a Semantic Search Engine using Transformers to get relevant data for downstream ML tasks like building Dashboard.
+  * Deployed the Search Engine using Streamlit, Docker, Docker Compose and other MLOps tools.
+  * Built Transformer based Topic Modelling on Deficiency data and used the results in downstream Classification Model to predict the category of
+deficiencies.
+  * Built a DistilGPT-2 based Transformer neural network to generate synthetic financial data for downstream ML models.
+
+  """
+
+[[experience]]
   title = "Machine Learning Researcher"
   company = "Vector Institute"
   company_url = "https://vectorinstitute.ai/"
