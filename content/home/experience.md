@@ -24,13 +24,20 @@ date_format = "Jan 2006"
   company_url = "https://www.cibc.com/en/personal-banking.html"
   location = "Toronto"
   date_start = "2020-11-23"
-  date_end = "2022-04-04"
+  date_end = "2024-09-30"
   description = """
-  * Built a Semantic Search Engine using Transformers to get relevant data for downstream ML tasks like building Dashboard.
-  * Deployed the Search Engine using Streamlit, Docker, Docker Compose and other MLOps tools.
-  * Built Transformer based Topic Modelling on Deficiency data and used the results in downstream Classification Model to predict the category of
+• Engineered and deployed a ninnovative HR chatbot powered by GPT-4o, analyzing HR documents and providing instant responses to employee queries, reducing average response time by 99% (from 15-20 minutes to seconds) and significantly enhancing organizational efficiency.
+• Engineered a cutting edge Strategic Workforce Management tool leveraging Gaussian Deep Learning Models and Graph Neural Networks, enabling HR to predict 3-5 year workforce dynamics (attrition, hiring, internal moves, retirements) with uncertainty quantification and scenario
+planning capabilities, resulting in a 40% reduction in decision-making time for data-driven workforce planning.
+•Worked with Large Language Models like GPT3.5, Llama and Falcon to improve the search functionality and efficiency of our internal platform.
+• Decreased 25% of call-center call volumes by building a Conversational AI system, integrating Automatic Speech Recognition and Neural Agent Assistance with state-of-the-art Transformer models. Published our work at the EMNLP 2022 conference - Industry Track.
+• Reduced 80% of manual labor by deploying an end-to-end self-served BERT model to analyze and extract insights from client feedbacks.
+• Managed, trained and interviewed full time employee and interns in Data Science and Software Engineer roles.
+• Built a Semantic Search Engine using Transformers to get relevant data for downstream ML tasks like building Dashboard.
+• Deployed the Search Engine using Streamlit, Docker and Docker Compose.
+• Built Transformer based Topic Modelling on Deficiency data and used the results in downstream Classification Model to predict the category of
 deficiencies.
-  * Built a DistilGPT-2 based Transformer neural network to generate synthetic financial data for downstream ML models.
+• Built a DistilGPT-2 based Transformer neural network to generate synthetic financial data for downstream ML models.
 
   """
 
