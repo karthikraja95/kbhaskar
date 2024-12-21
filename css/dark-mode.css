@@ -802,4 +802,23 @@
 
 .dark-mode .bio-section a:hover {
     opacity: 0.8;
+}
+
+/* Dark Mode Mobile Menu */
+.dark-mode .nav-toggle span {
+    background-color: var(--text-color);
+}
+
+.dark-mode .nav-links {
+    background: var(--bg-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md);
+}
+
+.dark-mode .nav-links a {
+    color: var(--text-color);
+}
+
+.dark-mode .nav-links a:hover {
+    background: rgba(96, 165, 250, 0.1);
 } 
