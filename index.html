@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio website showcasing experience, projects, and expertise">
+    <title>Karthik Bhaskar - AI Scientist & ML Researcher</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#home">KB</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#talks">Talks</a></li>
+                <li>
+                    <button id="darkModeToggle" class="dark-mode-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section home-section">
+            <div class="container">
+                <div class="profile-container">
+                    <!-- Left Column: Profile Info -->
+                    <div class="profile-sidebar">
+                        <div class="profile-image-wrapper">
+                            <div class="profile-image">
+                                <img src="assets/profile-placeholder.jpg" alt="Karthik Bhaskar">
+                            </div>
+                        </div>
+                        
+                        <div class="profile-titles">
+                            <div class="title-item">
+                                <i class="fas fa-briefcase"></i>
+                                <h3>Senior AI Scientist @ <a href="https://www.cibc.com" target="_blank">CIBC</a></h3>
+                            </div>
+                            <div class="title-item">
+                                <i class="fas fa-microscope"></i>
+                                <h3>ML Researcher @ <a href="https://vectorinstitute.ai/" target="_blank">Vector Institute</a></h3>
+                            </div>
+                        </div>
+
+                        <div class="education-section">
+                            <h3>Education</h3>
+                            <div class="education-item">
+                                <div class="education-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="education-content">
+                                    <h4>Master of Engineering in ECE</h4>
+                                    <p class="university">University of Toronto</p>
+                                    <p class="specialization">Specialization: Deep Learning, Natural Language Processing, Healthcare</p>
+                                    <p class="advisors">Advisors: Prof. Bo Wang, Prof. Deepa Kundur, Prof. Yuri Lawryshyn</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cta-buttons">
+                            <a href="#skills" class="btn primary-btn">
+                                <i class="fas fa-project-diagram"></i>
+                                My Expertise
+                            </a>
+                            <a href="#projects" class="btn secondary-btn">
+                                <i class="fas fa-book-reader"></i>
+                                Explore Projects
+                            </a>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/~kbhaskar/" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/karthikraja95" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/kbhaskar_95" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Bio Content -->
+                    <div class="profile-content">
+                        <div class="intro-text">
+                            <span class="greeting">Hi, I'm</span>
+                            <h1><span class="highlight">Karthik Bhaskar</span></h1>
+                            <h2>Senior AI Scientist</h2>
+                        </div>
+                        
+                        <div class="bio-section">
+                            <h3>About Me</h3>
+                            <p class="bio">I am a <strong>Senior AI Scientist</strong> at <a href="https://www.cibc.com" target="_blank">CIBC</a>. Previously, I worked as a <strong>ML Researcher</strong> at <a href="https://www.wanglab.ai" target="_blank">WangLab</a> affiliated with <a href="https://www.vectorinstitute.ai" target="_blank">Vector Institute</a> and <a href="https://www.uhn.ca" target="_blank">University Health Network</a>, proudly advised by <em>Prof. <a href="https://vectorinstitute.ai/team/bo-wang/" target="_blank">Bo Wang</a></em>.</p>
+                            
+                            <p class="bio">I completed my Master's degree in ECE, specialized in <strong>Machine Learning</strong> at the University of Toronto advised by <em>Prof. <a href="https://www.comm.utoronto.ca/dkundur/about/" target="_blank">Deepa Kundur</a></em> and by <em>Prof. <a href="https://www.cmte.utoronto.ca/people/sowlati" target="_blank">Yuri Lawryshyn</a></em>. In my free time I work on projects at the intersection of <strong>Deep Learning, Natural Language Processing and Healthcare</strong>. Apart from that, I am also interested in <strong>Large Language Models</strong> and <strong>Deep Reinforcement Learning</strong>.</p>
+                            
+                            <p class="bio highlight-text"><strong>My ultimate goal is to build robust, privacy-preserved, and interpretable algorithms with human like ability to generalize in real-world environments by using data as its own supervision.</strong></p>
+                            
+                            <p class="bio">I am a Stream Owner and Discussion Group Lead of the <strong>"Machine Learning in Healthcare"</strong> stream at <strong><a href="https://www.ai.science/" target="_blank">AISC (Aggregate Intellect)</a></strong>, where we discuss one paper at a time every week from basics to state-of-the-art ML papers in HealthCare.</p>
+                            
+                            <p class="bio">Throughout my life, I have approached every challenge with enthusiasm, creativity, and a ceaseless desire to achieve success. This passion and drive have paved the way to countless opportunities, unique experiences, and excellent relationships, both personally and professionally. I enjoy working with people and discussing ideas.</p>
+                        </div>
+
+                        <div class="interests-section">
+                            <h3>Research Interests</h3>
+                            <ul class="interests-list">
+                                <li><i class="fas fa-brain"></i>Large Language Models</li>
+                                <li><i class="fas fa-network-wired"></i>Deep Learning</li>
+                                <li><i class="fas fa-language"></i>Natural Language Processing</li>
+                                <li><i class="fas fa-robot"></i>Deep Reinforcement Learning</li>
+                                <li><i class="fas fa-shield-alt"></i>Privacy Preserved ML</li>
+                                <li><i class="fas fa-thumbs-up"></i>Recommender Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Senior AI Scientist</h3>
+                            <h4>CIBC</h4>
+                            <p class="date">2020 - Present</p>
+                            <ul class="experience-details">
+                                <li>Designed and implemented Retrieval-Augmented Generation (RAG) systems using vector databases, improving information retrieval accuracy by 35% and enabling more context-aware AI interactions.</li>
+                                <li>Implemented robust LLMOps practices, leveraging MLFlow for experiment tracking and Databricks ML for managing machine learning workflows, resulting in a 25% reduction in model deployment time and improved reproducibility of results.</li>
+                                <li>Architected and optimized distributed compute environments for running large-scale language models, implementing data and model parallelism techniques to efficiently handle massive datasets and reduce training.</li>
+                                <li>Developed comprehensive observability and monitoring solutions for LLM models, tracking performance metrics, model drift, and resource usage, leading to an improvement in model reliability and a reduction in operational costs.</li>
+                                <li>Engineered and deployed an innovative HR chatbot powered by GPT-4, analyzing HR documents and providing instant responses to employee queries, reducing average response time by 99% (from 15-20 minutes to seconds) and significantly enhancing organizational efficiency.</li>
+                                <li>Engineered a cutting-edge Strategic Workforce Management tool leveraging Gaussian Deep Learning Models and Graph Neural Networks, enabling HR to predict 3-5 year workforce dynamics (attrition, hiring, internal moves, retirements) with uncertainty quantification and scenario planning capabilities, resulting in a 40% reduction in decision-making time for data-driven workforce planning.</li>
+                                <li>Optimized data pipeline efficiency by identifying and resolving I/O bottlenecks and inefficient data shuffling, resulting in a 50% reduction in data processing time for large-scale ML workloads.</li>
+                                <li>Engineered and deployed cutting-edge Large Language Models (LLMs) including GPT-3.5, Llama, and Falcon, implementing fine-tuning techniques and prompt engineering to enhance search functionality and efficiency of our internal platform, resulting in a 30% improvement in query response accuracy.</li>
+                                <li>Developed Search tools and ML models using NLP techniques to enhance the team’s ability to investigate potential money laundering activity and identify trends, resulting in a 35% reduction in investigation time.</li>
+                                <li>Decreased 25% of call-center call volumes by building a Conversational AI system, integrating Automatic Speech Recognition and Neural Agent Assistance with state-of-the-art Transformer models. Published our work at the EMNLP 2022 - Industry Track conference.</li>
+                                <li>Reduced 80% of manual labour by deploying an end-to-end self-served BERT model to analyze and extract insights from client feedbacks.</li>
+                                <li>Built a Semantic Search Engine using Transformers to get relevant data for downstream ML tasks like building Dashboard.</li>
+                                <li>Engineered and deployed a high-performance Semantic Search Engine using Transformers, implementing data and model parallelism to improve training. Utilized Streamlit, Docker, and Docker Compose for seamless deployment and scaling.</li>
+                                <li>Built Transformer based Topic Modelling on Deficiency data and used the results in downstream Classification Model to predict the category of deficiencies.</li>
+                                <li>Built a DistilGPT-2 based Transformer neural network to generate synthetic financial data for downstream ML models.</li>
+                                <li>Managed, trained and interviewed full time employee and interns in Data Science and Software Engineer roles.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>ML Researcher</h3>
+                            <h4>WangLab - Vector Institute</h4>
+                            <p class="date">2020 - 2021</p>
+                            <ul class="experience-details">
+                                <li>WangLab is affiliated with Vector Institute and University Health Network - Advised by Bo Wang</li>
+                                <li>Worked on a project at the intersection of Computational Biology, Deep Learning and Natural Language Processing.</li>
+                                <li>Applied Self Supervised Learning, Weak Supervision and Data Programming on MIMIC III database.</li>
+                                <li>Built Transformer based architecture model to improve the accuracy of massively multi-task classification problem.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Graduate Machine Learning Researcher</h3>
+                            <h4>University of Toronto</h4>
+                            <p class="date">2018 - 2020</p>
+                            <ul class="experience-details">
+                                <li>Responsible for developing and building cutting edge state of the art deep learning based recommendation system.</li>
+                                <li>Built a Deep Learning-based Recommendation System for Wolseley's e-commerce website from scratch to production.</li>
+                                <li>Dataset is massive involving more than 200,000 unique customers and 500,000 unique SKUs.</li>
+                                <li>Achieved a personalized NDCG score of 72.4% and improved the One-Product Hit Ratio to 100%.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Data Science/Machine Learning Intern</h3>
+                            <h4>Cybersecurity Research</h4>
+                            <p class="date">Summer 2018  and Summer 2019</p>
+                            <ul class="experience-details">
+                                <li>Worked with cybersecurity professionals and built a defense mechanism using deep learning and unsupervised learning techniques to prevent cyberattacks.</li>
+                                <li>Built Unsupervised Auto Tagging algorithm and Automatic Rule Synthesis for Octavius.</li>
+                                <li>Investigated an Automatic Rule synthesis algorithm for Octavius using Deep Reinforcement Learning to improve overall defense mechanism.</li>
+                                <li>Devised a Deep Learning model that detects and prevents the cyberattack before it happens (ProjectX).</li>
+                                <li>Used NLP, Neural Networks, Knowledge Graphs for Keyword Extraction, etc.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <h3>Multi-Agent Deep Deterministic Policy Gradient</h3>
+                        <a href="https://github.com/karthikraja95/DeepRL-Collaboration-Competition" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <h3>Defense GAN & Physical Adversarial Examples</h3>
+                        <a href="https://github.com/karthikraja95/Tranferability_of_DEFENSE-GAN_to_Physical_Adversarial_Examples" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <h3>Deep Deterministic Policy Gradient</h3>
+                        <a href="https://github.com/karthikraja95/Deep-Reinforcement-Learning-Continuous-Control" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <h3>Human Like Chess Engine</h3>
+                        <a href="https://github.com/karthikraja95/Human-Like-Chess-Engine" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <h3>Navigation: Deep Q Networks</h3>
+                        <a href="https://github.com/karthikraja95/Deep-Reinforcement-Learning-Navigation" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <h3>Detecting Deforestation from Satellite Images</h3>
+                        <a href="https://github.com/karthikraja95/fsdl_deforestation_detection" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="project-card">
+                        <h3>Hyper Face</h3>
+                        <a href="https://github.com/karthikraja95/HyperFace" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 8 -->
+                    <div class="project-card">
+                        <h3>Self Driving Cars</h3>
+                        <a href="https://github.com/karthikraja95/self_driving_cars" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 9 -->
+                    <div class="project-card">
+                        <h3>Music Generation</h3>
+                        <a href="https://github.com/karthikraja95/Music_Generation" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 10 -->
+                    <div class="project-card">
+                        <h3>Microsoft Malware Detection</h3>
+                        <a href="https://github.com/karthikraja95/kaggle-Microsoft-Malware-Detection" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 11 -->
+                    <div class="project-card">
+                        <h3>Facebook Social Network Graph Prediction</h3>
+                        <a href="https://github.com/karthikraja95/kaggle-Facebook_Challenge" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+
+                    <!-- Project 12 -->
+                    <div class="project-card">
+                        <h3>Google Advertisement Click Prediction</h3>
+                        <a href="https://github.com/karthikraja95/AD-click-prediction" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <div class="container">
+                <h2 class="section-title">Research Publications</h2>
+                <div class="publications-list">
+                    <div class="publication-item">
+                        <div class="publication-content">
+                            <h3>Bringing the State-of-the-Art to Customers: A Neural Agent Assistant Framework for Customer Service Support</h3>
+                            <div class="publication-meta">
+                                <span class="authors">Karthik Raja Kalaiselvi Bhaskar, Stephen Obadinma, et al.</span>
+                                <span class="journal">ACL Anthology - EMNLP, 2022</span>
+                            </div>
+                            <p class="abstract">
+                                Building Agent Assistants that can help improve customer service support requires inputs from industry users and their customers, as well as knowledge about state-of-the-art Natural Language Processing (NLP) technology. We combine expertise from academia and industry to bridge the gap and build task/domain-specific Neural Agent Assistants (NAA) with three high-level components for: (1) Intent Identification, (2) Context Retrieval, and (3) Response Generation. In this paper, we outline the pipeline of the NAA core system and also present three case studies in which three industry partners successfully adapt the framework to find solutions to their unique challenges. Our findings suggest that a collaborative process is instrumental in spurring the development of emerging NLP models for Conversational AI tasks in industry. The full reference implementation code and results are available at <a href="https://github.com/VectorInstitute/NAA" target="_blank"> https://github.com/VectorInstitute/NAA</a>.
+                            </p>
+                            <div class="publication-links">
+                                <a href="https://aclanthology.org/2022.emnlp-industry.44/" target="_blank" class="paper-link">
+                                    <i class="fas fa-file-pdf"></i> arXiv
+                                </a>
+                                <button class="cite-button" onclick="copyToClipboard('citation1')">
+                                    <i class="fas fa-quote-right"></i> Cite
+                                </button>
+                                <div class="citation-text" id="citation1">
+                                    @inproceedings{obadinma-etal-2022-bringing,
+                                        title = "Bringing the State-of-the-Art to Customers: A Neural Agent Assistant Framework for Customer Service Support",
+                                        author = "Obadinma, Stephen  and
+                                          Khan Khattak, Faiza  and
+                                          Wang, Shirley  and
+                                          Sidhorn, Tania  and
+                                          Lau, Elaine  and
+                                          Robertson, Sean  and
+                                          Niu, Jingcheng  and
+                                          Au, Winnie  and
+                                          Munim, Alif  and
+                                          Kalaiselvi Bhaskar, Karthik Raja",
+                                        editor = "Li, Yunyao  and
+                                          Lazaridou, Angeliki",
+                                        booktitle = "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing: Industry Track",
+                                        month = dec,
+                                        year = "2022",
+                                        address = "Abu Dhabi, UAE",
+                                        publisher = "Association for Computational Linguistics",
+                                        url = "https://aclanthology.org/2022.emnlp-industry.44",
+                                        doi = "10.18653/v1/2022.emnlp-industry.44",
+                                        pages = "440--450",
+                                        abstract = "Building Agent Assistants that can help improve customer service support requires inputs from industry users and their customers, as well as knowledge about state-of-the-art Natural Language Processing (NLP) technology. We combine expertise from academia and industry to bridge the gap and build task/domain-specific Neural Agent Assistants (NAA) with three high-level components for: (1) Intent Identification, (2) Context Retrieval, and (3) Response Generation. In this paper, we outline the pipeline of the NAA{'}s core system and also present three case studies in which three industry partners successfully adapt the framework to find solutions to their unique challenges. Our findings suggest that a collaborative process is instrumental in spurring the development of emerging NLP models for Conversational AI tasks in industry. The full reference implementation code and results are available at \url{https://github.com/VectorInstitute/NAA}.",
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-content">
+                            <h3>Implicit Feedback Deep Collaborative Filtering Product Recommendation System</h3>
+                            <div class="publication-meta">
+                                <span class="authors">Karthik Raja Kalaiselvi Bhaskar, Deepa Kundur, Yuri Lawryshyn</span>
+                                <span class="journal">arXiv, 2020</span>
+                            </div>
+                            <p class="abstract">
+                                In this paper, several Collaborative Filtering (CF) approaches with latent variable methods were studied using user-item interactions to capture important hidden variations of the sparse customer purchasing behaviours. The latent factors are used to generalize the purchasing pattern of the customers and to provide product recommendations. CF with Neural Collaborative Filtering(NCF) was shown to produce the highest Normalized Discounted Cumulative Gain (NDCG) performance on the real-world proprietary dataset provided by a large parts supply company. Different hyperparameters were tested using Bayesian Optimization (BO) for applicability in the CF framework. External data sources like click-data and metrics like Clickthrough Rate (CTR) were reviewed for potential extensions to the work presented. The work shown in this paper provides techniques the Company can use to provide product recommendations to enhance revenues, attract new customers, and gain advantages over competitors.
+                            </p>
+                            <div class="publication-links">
+                                <a href="https://arxiv.org/abs/2009.08950" target="_blank" class="paper-link">
+                                    <i class="fas fa-file-pdf"></i> arXiv
+                                </a>
+                                <button class="cite-button" onclick="copyToClipboard('citation2')">
+                                    <i class="fas fa-quote-right"></i> Cite
+                                </button>
+                                <div class="citation-text" id="citation2">
+                                    @article{raja2020implicit,
+                                        title={Implicit Feedback Deep Collaborative Filtering Product Recommendation System},
+                                        author={Raja Kalaiselvi Bhaskar, Karthik and Kundur, Deepa and Lawryshyn, Yuri},
+                                        journal={arXiv e-prints},
+                                        pages={arXiv--2009},
+                                        year={2020}
+                                      }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="PyTorch">
+                                <i class="fas fa-fire"></i>
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="skill-item" data-skill="TensorFlow">
+                                <i class="fab fa-python"></i>
+                                <span>TensorFlow</span>
+                            </div>
+                            <div class="skill-item" data-skill="Keras">
+                                <i class="fas fa-layer-group"></i>
+                                <span>Keras</span>
+                            </div>
+                            <div class="skill-item" data-skill="Scikit-learn">
+                                <i class="fas fa-cogs"></i>
+                                <span>Scikit-learn</span>
+                            </div>
+                            <div class="skill-item" data-skill="MLflow">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>MLflow</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-robot"></i> LLMs & NLP</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="LangChain">
+                                <i class="fas fa-link"></i>
+                                <span>LangChain</span>
+                            </div>
+                            <div class="skill-item" data-skill="LlamaIndex">
+                                <i class="fas fa-search"></i>
+                                <span>LlamaIndex</span>
+                            </div>
+                            <div class="skill-item" data-skill="HuggingFace">
+                                <i class="fas fa-smile-beam"></i>
+                                <span>HuggingFace</span>
+                            </div>
+                            <div class="skill-item" data-skill="Spacy">
+                                <i class="fas fa-language"></i>
+                                <span>Spacy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Python">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-item" data-skill="SQL">
+                                <i class="fas fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="skill-item" data-skill="Git">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="skill-item" data-skill="Linux">
+                                <i class="fab fa-linux"></i>
+                                <span>Linux</span>
+                            </div>
+                            <div class="skill-item" data-skill="Spark">
+                                <i class="fas fa-bolt"></i>
+                                <span>Spark</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-chart-line"></i> Data Processing & Analysis</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Numpy">
+                                <i class="fas fa-calculator"></i>
+                                <span>Numpy</span>
+                            </div>
+                            <div class="skill-item" data-skill="Pandas">
+                                <i class="fas fa-table"></i>
+                                <span>Pandas</span>
+                            </div>
+                            <div class="skill-item" data-skill="SciPy">
+                                <i class="fas fa-square-root-alt"></i>
+                                <span>SciPy</span>
+                            </div>
+                            <div class="skill-item" data-skill="PySpark">
+                                <i class="fas fa-bolt"></i>
+                                <span>PySpark</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-chart-bar"></i> Visualization</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Plotly">
+                                <i class="fas fa-chart-area"></i>
+                                <span>Plotly</span>
+                            </div>
+                            <div class="skill-item" data-skill="Seaborn">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>Seaborn</span>
+                            </div>
+                            <div class="skill-item" data-skill="Matplotlib">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Matplotlib</span>
+                            </div>
+                            <div class="skill-item" data-skill="Tableau">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Tableau</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-globe"></i> Web Development</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Streamlit">
+                                <i class="fas fa-stream"></i>
+                                <span>Streamlit</span>
+                            </div>
+                            <div class="skill-item" data-skill="Flask">
+                                <i class="fab fa-python"></i>
+                                <span>Flask</span>
+                            </div>
+                            <div class="skill-item" data-skill="AngularJS">
+                                <i class="fab fa-angular"></i>
+                                <span>AngularJS</span>
+                            </div>
+                            <div class="skill-item" data-skill="NodeJS">
+                                <i class="fab fa-node-js"></i>
+                                <span>NodeJS</span>
+                            </div>
+                            <div class="skill-item" data-skill="Bootstrap">
+                                <i class="fab fa-bootstrap"></i>
+                                <span>Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> Cloud & DevOps</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Azure">
+                                <i class="fab fa-microsoft"></i>
+                                <span>Azure</span>
+                            </div>
+                            <div class="skill-item" data-skill="AWS">
+                                <i class="fab fa-aws"></i>
+                                <span>AWS</span>
+                            </div>
+                            <div class="skill-item" data-skill="GCP">
+                                <i class="fab fa-google"></i>
+                                <span>GCP</span>
+                            </div>
+                            <div class="skill-item" data-skill="Docker">
+                                <i class="fab fa-docker"></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="skill-item" data-skill="Kubernetes">
+                                <i class="fas fa-dharmachakra"></i>
+                                <span>Kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Database & Vector Search</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Pinecone">
+                                <i class="fas fa-vector-square"></i>
+                                <span>Pinecone</span>
+                            </div>
+                            <div class="skill-item" data-skill="Ray">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Ray</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cogs"></i> MLOps & LLMOps</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Model Lifecycle">
+                                <i class="fas fa-sync"></i>
+                                <span>Model Lifecycle</span>
+                            </div>
+                            <div class="skill-item" data-skill="Experiment Tracking">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Experiment Tracking</span>
+                            </div>
+                            <div class="skill-item" data-skill="Observability">
+                                <i class="fas fa-eye"></i>
+                                <span>Observability</span>
+                            </div>
+                            <div class="skill-item" data-skill="Monitoring">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Monitoring</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-microscope"></i> Research Areas</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Deep Learning">
+                                <i class="fas fa-brain"></i>
+                                <span>Deep Learning</span>
+                            </div>
+                            <div class="skill-item" data-skill="LLMs">
+                                <i class="fas fa-robot"></i>
+                                <span>LLMs</span>
+                            </div>
+                            <div class="skill-item" data-skill="Generative AI">
+                                <i class="fas fa-magic"></i>
+                                <span>Generative AI</span>
+                            </div>
+                            <div class="skill-item" data-skill="RL">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Reinforcement Learning</span>
+                            </div>
+                            <div class="skill-item" data-skill="RecSys">
+                                <i class="fas fa-thumbs-up"></i>
+                                <span>Recommendation Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talks Section -->
+        <section id="talks" class="section">
+            <div class="container">
+                <h2 class="section-title">Conference Talks & Presentations</h2>
+                <div class="talks-grid">
+                    <div class="talk-card">
+                        <h3>Deep Learning in HealthCare and its Practical Limitations</h3>
+                        <div class="talk-meta">
+                            <div class="talk-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Jan 20, 2021 7:30 PM</span>
+                            </div>
+                            <div class="talk-meta-item">
+                                <i class="fas fa-microphone"></i>
+                                <span>AISC</span>
+                            </div>
+                            <div class="talk-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Virtual Talk</span>
+                            </div>
+                        </div>
+                        <div class="talk-description">
+                            Deep learning uses statistical techniques to give computer systems the ability to learn with incoming data and to identify patterns and make decisions with minimal human direction. Armed with such targeted analytics, doctors may be better able to assess risk, make correct diagnoses, and offer patients more effective treatments. Deep Learning has a lot of potential in Healthcare. But why don't these techniques are adopted in hospitals yet? What are the gaps between academic research and production level code in Deep Learning and Healthcare? How can we mitigate this production level gap in Deep Learning and Healthcare, and what are some of the tools and techniques we can deploy?
+                        </div>
+                        <div class="talk-topics">
+                            <span class="talk-topic">History of Deep Learning</span>
+                            <span class="talk-topic">Why DeepLearing for Healthcare?</span>
+                            <span class="talk-topic">Practical Limitations</span>
+                            <span class="talk-topic">Research vs Production</span>
+                            <span class="talk-topic">Data Augmentation</span>
+                            <span class="talk-topic">Data Synthesis</span>
+                            <span class="talk-topic">Pretraining</span>
+                            <span class="talk-topic">Deep Learning Engineering</span>
+                            <span class="talk-topic">ML Lifecycle</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=Gp9WqvpI0mE" target="_blank" class="talk-video-link">
+                            <i class="fab fa-youtube"></i>
+                            Watch Talk
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Karthik Bhaskar. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/~kbhaskar/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/karthikraja95" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/kbhaskar_95" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
