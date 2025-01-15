@@ -17,6 +17,56 @@
             overflow: hidden;
             transition: all 0.3s ease-out;
         }
+        
+        /* Active state - ensure content is fully visible */
+        .timeline-item.active .timeline-content {
+            max-height: none !important;
+            opacity: 1;
+            overflow: visible;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Buttons styling */
+        .cta-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-buttons .btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cta-buttons .primary-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .cta-buttons .secondary-btn {
+            background-color: transparent;
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+
+        .cta-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .cta-buttons .btn i {
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body class="light-mode">
@@ -781,8 +831,10 @@
                     const otherContent = otherItem.querySelector('.timeline-content');
                     otherItem.classList.remove('active');
                     if (otherContent) {
-                        otherContent.style.maxHeight = '0';
                         otherContent.style.opacity = '0';
+                        setTimeout(() => {
+                            otherContent.style.maxHeight = '0';
+                        }, 50);
                     }
                 }
             });
@@ -792,16 +844,11 @@
                 // Expand
                 item.classList.add('active');
                 if (content) {
-                    // Calculate the total height including list items
-                    const totalHeight = Array.from(content.children)
-                        .reduce((acc, child) => acc + child.scrollHeight, 0);
-                    content.style.maxHeight = `${totalHeight + 100}px`; // Add padding
                     content.style.opacity = '1';
                 }
             } else {
                 // Collapse
                 if (content) {
-                    content.style.maxHeight = '0';
                     content.style.opacity = '0';
                     setTimeout(() => {
                         item.classList.remove('active');
@@ -810,20 +857,7 @@
             }
         }
 
-        // Handle window resize
-        document.addEventListener('DOMContentLoaded', () => {
-            window.addEventListener('resize', () => {
-                const activeItem = document.querySelector('.timeline-item.active');
-                if (activeItem) {
-                    const content = activeItem.querySelector('.timeline-content');
-                    if (content) {
-                        const totalHeight = Array.from(content.children)
-                            .reduce((acc, child) => acc + child.scrollHeight, 0);
-                        content.style.maxHeight = `${totalHeight + 100}px`;
-                    }
-                }
-            });
-        });
+        // No need for resize handler since we're using CSS to control visibility
     </script>
 </body>
 </html> 
