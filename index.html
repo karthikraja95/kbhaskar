@@ -20,52 +20,10 @@
         
         /* Active state - ensure content is fully visible */
         .timeline-item.active .timeline-content {
-            max-height: none !important;
+            max-height: none !important; /* Override any inline styles */
             opacity: 1;
             overflow: visible;
             margin-bottom: 20px;
-        }
-
-        /* CTA Buttons styling */
-        .cta-buttons {
-            display: flex;
-            gap: 10px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .cta-buttons .btn {
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .cta-buttons .primary-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-        }
-
-        .cta-buttons .secondary-btn {
-            background-color: transparent;
-            color: #007bff;
-            border: 1px solid #007bff;
-        }
-
-        .cta-buttons .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .cta-buttons .btn i {
-            font-size: 0.9rem;
         }
     </style>
 </head>
