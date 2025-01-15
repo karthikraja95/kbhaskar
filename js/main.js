@@ -415,4 +415,82 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeProjectModal();
     }
+});
+
+// Experience section toggle functionality
+function toggleExperience(header) {
+    const item = header.closest('.timeline-item');
+    const content = item.querySelector('.timeline-content');
+    const toggle = item.querySelector('.timeline-toggle i');
+    
+    // Toggle the clicked item
+    if (!item.classList.contains('active')) {
+        // Close all other items
+        document.querySelectorAll('.timeline-item').forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+                const otherContent = otherItem.querySelector('.timeline-content');
+                const otherToggle = otherItem.querySelector('.timeline-toggle i');
+                if (otherContent) {
+                    otherContent.style.maxHeight = '0';
+                    otherContent.style.opacity = '0';
+                    otherContent.style.visibility = 'hidden';
+                }
+                if (otherToggle) {
+                    otherToggle.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+
+        // Expand
+        item.classList.add('active');
+        if (content) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+            content.style.visibility = 'visible';
+        }
+        if (toggle) {
+            toggle.style.transform = 'rotate(180deg)';
+        }
+    } else {
+        // Collapse
+        item.classList.remove('active');
+        if (content) {
+            content.style.maxHeight = '0';
+            content.style.opacity = '0';
+            content.style.visibility = 'hidden';
+        }
+        if (toggle) {
+            toggle.style.transform = 'rotate(0deg)';
+        }
+    }
+}
+
+// Initialize the first experience item as active
+document.addEventListener('DOMContentLoaded', () => {
+    const firstItem = document.querySelector('.timeline-item');
+    if (firstItem) {
+        const content = firstItem.querySelector('.timeline-content');
+        const toggle = firstItem.querySelector('.timeline-toggle i');
+        firstItem.classList.add('active');
+        if (content) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+            content.style.visibility = 'visible';
+        }
+        if (toggle) {
+            toggle.style.transform = 'rotate(180deg)';
+        }
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const activeItem = document.querySelector('.timeline-item.active');
+        if (activeItem) {
+            const content = activeItem.querySelector('.timeline-content');
+            if (content) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+    });
 }); 

@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Initial state for timeline content - collapsed by default */
+        .timeline-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+        }
+    </style>
 </head>
 <body class="light-mode">
     <!-- Header -->
@@ -143,81 +152,118 @@
             <div class="container">
                 <h2 class="section-title">Experience</h2>
                 <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-icon">
-                            <i class="fas fa-briefcase"></i>
+                    <div class="timeline-container">
+                        <!-- Experience 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-header" onclick="toggleExperience(this)">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="timeline-summary">
+                                    <h3>Senior AI Scientist</h3>
+                                    <p class="role">CIBC</p>
+                                    <p class="date">2020 - Present</p>
+                                </div>
+                                <div class="timeline-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <ul class="experience-details">
+                                    <li>Designed and implemented Retrieval-Augmented Generation (RAG) systems using vector databases, improving information retrieval accuracy by 35% and enabling more context-aware AI interactions.</li>
+                                    <li>Implemented robust LLMOps practices, leveraging MLFlow for experiment tracking and Databricks ML for managing machine learning workflows, resulting in a 25% reduction in model deployment time and improved reproducibility of results.</li>
+                                    <li>Architected and optimized distributed compute environments for running large-scale language models, implementing data and model parallelism techniques to efficiently handle massive datasets and reduce training.</li>
+                                    <li>Developed comprehensive observability and monitoring solutions for LLM models, tracking performance metrics, model drift, and resource usage, leading to an improvement in model reliability and a reduction in operational costs.</li>
+                                    <li>Engineered and deployed an innovative HR chatbot powered by GPT-4, analyzing HR documents and providing instant responses to employee queries, reducing average response time by 99% (from 15-20 minutes to seconds) and significantly enhancing organizational efficiency.</li>
+                                    <li>Engineered a cutting-edge Strategic Workforce Management tool leveraging Gaussian Deep Learning Models and Graph Neural Networks, enabling HR to predict 3-5 year workforce dynamics (attrition, hiring, internal moves, retirements) with uncertainty quantification and scenario planning capabilities, resulting in a 40% reduction in decision-making time for data-driven workforce planning.</li>
+                                    <li>Optimized data pipeline efficiency by identifying and resolving I/O bottlenecks and inefficient data shuffling, resulting in a 50% reduction in data processing time for large-scale ML workloads.</li>
+                                    <li>Engineered and deployed cutting-edge Large Language Models (LLMs) including GPT-3.5, Llama, and Falcon, implementing fine-tuning techniques and prompt engineering to enhance search functionality and efficiency of our internal platform, resulting in a 30% improvement in query response accuracy.</li>
+                                    <li>Developed Search tools and ML models using NLP techniques to enhance the team's ability to investigate potential money laundering activity and identify trends, resulting in a 35% reduction in investigation time.</li>
+                                    <li>Decreased 25% of call-center call volumes by building a Conversational AI system, integrating Automatic Speech Recognition and Neural Agent Assistance with state-of-the-art Transformer models. Published our work at the EMNLP 2022 - Industry Track conference.</li>
+                                    <li>Reduced 80% of manual labour by deploying an end-to-end self-served BERT model to analyze and extract insights from client feedbacks.</li>
+                                    <li>Built a Semantic Search Engine using Transformers to get relevant data for downstream ML tasks like building Dashboard.</li>
+                                    <li>Engineered and deployed a high-performance Semantic Search Engine using Transformers, implementing data and model parallelism to improve training. Utilized Streamlit, Docker, and Docker Compose for seamless deployment and scaling.</li>
+                                    <li>Built Transformer based Topic Modelling on Deficiency data and used the results in downstream Classification Model to predict the category of deficiencies.</li>
+                                    <li>Built a DistilGPT-2 based Transformer neural network to generate synthetic financial data for downstream ML models.</li>
+                                    <li>Managed, trained and interviewed full time employee and interns in Data Science and Software Engineer roles.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <h3>Senior AI Scientist</h3>
-                            <h4>CIBC</h4>
-                            <p class="date">2020 - Present</p>
-                            <ul class="experience-details">
-                                <li>Designed and implemented Retrieval-Augmented Generation (RAG) systems using vector databases, improving information retrieval accuracy by 35% and enabling more context-aware AI interactions.</li>
-                                <li>Implemented robust LLMOps practices, leveraging MLFlow for experiment tracking and Databricks ML for managing machine learning workflows, resulting in a 25% reduction in model deployment time and improved reproducibility of results.</li>
-                                <li>Architected and optimized distributed compute environments for running large-scale language models, implementing data and model parallelism techniques to efficiently handle massive datasets and reduce training.</li>
-                                <li>Developed comprehensive observability and monitoring solutions for LLM models, tracking performance metrics, model drift, and resource usage, leading to an improvement in model reliability and a reduction in operational costs.</li>
-                                <li>Engineered and deployed an innovative HR chatbot powered by GPT-4, analyzing HR documents and providing instant responses to employee queries, reducing average response time by 99% (from 15-20 minutes to seconds) and significantly enhancing organizational efficiency.</li>
-                                <li>Engineered a cutting-edge Strategic Workforce Management tool leveraging Gaussian Deep Learning Models and Graph Neural Networks, enabling HR to predict 3-5 year workforce dynamics (attrition, hiring, internal moves, retirements) with uncertainty quantification and scenario planning capabilities, resulting in a 40% reduction in decision-making time for data-driven workforce planning.</li>
-                                <li>Optimized data pipeline efficiency by identifying and resolving I/O bottlenecks and inefficient data shuffling, resulting in a 50% reduction in data processing time for large-scale ML workloads.</li>
-                                <li>Engineered and deployed cutting-edge Large Language Models (LLMs) including GPT-3.5, Llama, and Falcon, implementing fine-tuning techniques and prompt engineering to enhance search functionality and efficiency of our internal platform, resulting in a 30% improvement in query response accuracy.</li>
-                                <li>Developed Search tools and ML models using NLP techniques to enhance the team’s ability to investigate potential money laundering activity and identify trends, resulting in a 35% reduction in investigation time.</li>
-                                <li>Decreased 25% of call-center call volumes by building a Conversational AI system, integrating Automatic Speech Recognition and Neural Agent Assistance with state-of-the-art Transformer models. Published our work at the EMNLP 2022 - Industry Track conference.</li>
-                                <li>Reduced 80% of manual labour by deploying an end-to-end self-served BERT model to analyze and extract insights from client feedbacks.</li>
-                                <li>Built a Semantic Search Engine using Transformers to get relevant data for downstream ML tasks like building Dashboard.</li>
-                                <li>Engineered and deployed a high-performance Semantic Search Engine using Transformers, implementing data and model parallelism to improve training. Utilized Streamlit, Docker, and Docker Compose for seamless deployment and scaling.</li>
-                                <li>Built Transformer based Topic Modelling on Deficiency data and used the results in downstream Classification Model to predict the category of deficiencies.</li>
-                                <li>Built a DistilGPT-2 based Transformer neural network to generate synthetic financial data for downstream ML models.</li>
-                                <li>Managed, trained and interviewed full time employee and interns in Data Science and Software Engineer roles.</li>
-                            </ul>
+
+                        <!-- Experience 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-header" onclick="toggleExperience(this)">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <div class="timeline-summary">
+                                    <h3>ML Researcher</h3>
+                                    <p class="role">WangLab - Vector Institute</p>
+                                    <p class="date">2020 - 2021</p>
+                                </div>
+                                <div class="timeline-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <ul class="experience-details">
+                                    <li>WangLab is affiliated with Vector Institute and University Health Network - Advised by Bo Wang</li>
+                                    <li>Worked on a project at the intersection of Computational Biology, Deep Learning and Natural Language Processing.</li>
+                                    <li>Applied Self Supervised Learning, Weak Supervision and Data Programming on MIMIC III database.</li>
+                                    <li>Built Transformer based architecture model to improve the accuracy of massively multi-task classification problem.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">
-                            <i class="fas fa-microscope"></i>
+
+                        <!-- Experience 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-header" onclick="toggleExperience(this)">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="timeline-summary">
+                                    <h3>Graduate Machine Learning Researcher</h3>
+                                    <p class="role">University of Toronto</p>
+                                    <p class="date">2018 - 2020</p>
+                                </div>
+                                <div class="timeline-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <ul class="experience-details">
+                                    <li>Responsible for developing and building cutting edge state of the art deep learning based recommendation system.</li>
+                                    <li>Built a Deep Learning-based Recommendation System for Wolseley's e-commerce website from scratch to production.</li>
+                                    <li>Dataset is massive involving more than 200,000 unique customers and 500,000 unique SKUs.</li>
+                                    <li>Achieved a personalized NDCG score of 72.4% and improved the One-Product Hit Ratio to 100%.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <h3>ML Researcher</h3>
-                            <h4>WangLab - Vector Institute</h4>
-                            <p class="date">2020 - 2021</p>
-                            <ul class="experience-details">
-                                <li>WangLab is affiliated with Vector Institute and University Health Network - Advised by Bo Wang</li>
-                                <li>Worked on a project at the intersection of Computational Biology, Deep Learning and Natural Language Processing.</li>
-                                <li>Applied Self Supervised Learning, Weak Supervision and Data Programming on MIMIC III database.</li>
-                                <li>Built Transformer based architecture model to improve the accuracy of massively multi-task classification problem.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Graduate Machine Learning Researcher</h3>
-                            <h4>University of Toronto</h4>
-                            <p class="date">2018 - 2020</p>
-                            <ul class="experience-details">
-                                <li>Responsible for developing and building cutting edge state of the art deep learning based recommendation system.</li>
-                                <li>Built a Deep Learning-based Recommendation System for Wolseley's e-commerce website from scratch to production.</li>
-                                <li>Dataset is massive involving more than 200,000 unique customers and 500,000 unique SKUs.</li>
-                                <li>Achieved a personalized NDCG score of 72.4% and improved the One-Product Hit Ratio to 100%.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Data Science/Machine Learning Intern</h3>
-                            <h4>Cybersecurity Research</h4>
-                            <p class="date">Summer 2018  and Summer 2019</p>
-                            <ul class="experience-details">
-                                <li>Worked with cybersecurity professionals and built a defense mechanism using deep learning and unsupervised learning techniques to prevent cyberattacks.</li>
-                                <li>Built Unsupervised Auto Tagging algorithm and Automatic Rule Synthesis for Octavius.</li>
-                                <li>Investigated an Automatic Rule synthesis algorithm for Octavius using Deep Reinforcement Learning to improve overall defense mechanism.</li>
-                                <li>Devised a Deep Learning model that detects and prevents the cyberattack before it happens (ProjectX).</li>
-                                <li>Used NLP, Neural Networks, Knowledge Graphs for Keyword Extraction, etc.</li>
-                            </ul>
+
+                        <!-- Experience 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-header" onclick="toggleExperience(this)">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="timeline-summary">
+                                    <h3>Data Science/Machine Learning Intern</h3>
+                                    <p class="role">Cybersecurity Research</p>
+                                    <p class="date">Summer 2018 and Summer 2019</p>
+                                </div>
+                                <div class="timeline-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <ul class="experience-details">
+                                    <li>Worked with cybersecurity professionals and built a defense mechanism using deep learning and unsupervised learning techniques to prevent cyberattacks.</li>
+                                    <li>Built Unsupervised Auto Tagging algorithm and Automatic Rule Synthesis for Octavius.</li>
+                                    <li>Investigated an Automatic Rule synthesis algorithm for Octavius using Deep Reinforcement Learning to improve overall defense mechanism.</li>
+                                    <li>Devised a Deep Learning model that detects and prevents the cyberattack before it happens (ProjectX).</li>
+                                    <li>Used NLP, Neural Networks, Knowledge Graphs for Keyword Extraction, etc.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -722,5 +768,62 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Experience section collapsible functionality
+        function toggleExperience(header) {
+            const item = header.closest('.timeline-item');
+            const content = item.querySelector('.timeline-content');
+            const wasActive = item.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.timeline-item').forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    const otherContent = otherItem.querySelector('.timeline-content');
+                    otherItem.classList.remove('active');
+                    if (otherContent) {
+                        otherContent.style.maxHeight = '0';
+                        otherContent.style.opacity = '0';
+                    }
+                }
+            });
+
+            // Toggle the clicked item
+            if (!wasActive) {
+                // Expand
+                item.classList.add('active');
+                if (content) {
+                    // Calculate the total height including list items
+                    const totalHeight = Array.from(content.children)
+                        .reduce((acc, child) => acc + child.scrollHeight, 0);
+                    content.style.maxHeight = `${totalHeight + 100}px`; // Add padding
+                    content.style.opacity = '1';
+                }
+            } else {
+                // Collapse
+                if (content) {
+                    content.style.maxHeight = '0';
+                    content.style.opacity = '0';
+                    setTimeout(() => {
+                        item.classList.remove('active');
+                    }, 300);
+                }
+            }
+        }
+
+        // Handle window resize
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('resize', () => {
+                const activeItem = document.querySelector('.timeline-item.active');
+                if (activeItem) {
+                    const content = activeItem.querySelector('.timeline-content');
+                    if (content) {
+                        const totalHeight = Array.from(content.children)
+                            .reduce((acc, child) => acc + child.scrollHeight, 0);
+                        content.style.maxHeight = `${totalHeight + 100}px`;
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

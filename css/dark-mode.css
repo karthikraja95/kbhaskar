@@ -303,29 +303,59 @@
 .dark-mode .timeline-item {
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 2rem;
+    box-shadow: var(--shadow-sm);
 }
 
-.dark-mode .timeline-item h3 {
+.dark-mode .timeline-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.dark-mode .timeline-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .timeline-header:hover {
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.dark-mode .timeline-icon {
+    background: var(--primary-color);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+}
+
+.dark-mode .timeline-summary h3 {
     color: var(--text-color);
-    font-weight: 600;
 }
 
-.dark-mode .timeline-item h4 {
+.dark-mode .timeline-summary .role {
     color: var(--primary-color);
-    font-weight: 500;
 }
 
-.dark-mode .timeline-item .date {
+.dark-mode .timeline-summary .date {
     color: var(--text-secondary);
-    font-weight: 500;
 }
 
-.dark-mode .timeline-item ul li {
+.dark-mode .timeline-content {
+    background: var(--card-bg);
+}
+
+.dark-mode .timeline-content ul li {
     color: var(--text-color);
-    line-height: 1.7;
-    margin-bottom: 0.8rem;
+}
+
+.dark-mode .timeline-content ul li::before {
+    color: var(--primary-color);
+}
+
+.dark-mode .timeline-toggle i {
+    color: var(--text-secondary);
+}
+
+.dark-mode .timeline-item:not(:last-child)::after {
+    color: var(--primary-color);
+    opacity: 0.7;
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
 }
 
 /* Dark mode toggle button */
