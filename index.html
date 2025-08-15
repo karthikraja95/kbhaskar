@@ -9,74 +9,7 @@
     <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Initial state for timeline content - collapsed by default */
-        .timeline-content {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-out;
-        }
-        
-        /* Active state - ensure content is fully visible */
-        .timeline-item.active .timeline-content {
-            max-height: none !important;
-            opacity: 1;
-            overflow: visible;
-            margin-bottom: 20px;
-        }
 
-        /* CTA Buttons styling */
-        .cta-buttons {
-            display: flex;
-            gap: 10px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-
-        .cta-buttons .btn {
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            border-radius: 6px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            max-width: 100%;
-        }
-
-        .cta-buttons .primary-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-        }
-
-        .cta-buttons .secondary-btn {
-            background-color: transparent;
-            color: #007bff;
-            border: 1px solid #007bff;
-        }
-
-        .cta-buttons .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-buttons .primary-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .cta-buttons .secondary-btn:hover {
-            background-color: rgba(0, 123, 255, 0.1);
-        }
-
-        /* Ensure icons in buttons are properly sized */
-        .cta-buttons .btn i {
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body class="light-mode">
     <!-- Header -->
@@ -173,8 +106,12 @@
                     <div class="profile-content">
                         <div class="intro-text">
                             <span class="greeting">Hi, I'm</span>
-                            <h1><span class="highlight">Karthik Bhaskar</span></h1>
-                            <h2>Senior AI Scientist</h2>
+                            <h1><span class="highlight animated-name" id="animated-name">Karthik Bhaskar</span></h1>
+                            <h2>
+                                <div class="typewriter-container">
+                                    <span class="typewriter-text" id="typewriter-text"></span><span class="ai-cursor"></span>
+                                </div>
+                            </h2>
                         </div>
                         
                         <div class="bio-section">
@@ -214,20 +151,18 @@
                     <div class="timeline-container">
                         <!-- Experience 1 -->
                         <div class="timeline-item">
-                            <div class="timeline-header" onclick="toggleExperience(this)">
-                                <div class="timeline-icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div class="timeline-summary">
-                                    <h3>Senior AI Scientist</h3>
-                                    <p class="role">CIBC</p>
-                                    <p class="date">2020 - Present</p>
-                                </div>
-                                <div class="timeline-toggle">
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
+                            <div class="timeline-node">
+                                <i class="fas fa-briefcase"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content" onclick="toggleExperience(this)">
+                                <div class="experience-header">
+                                    <h3 class="experience-title">Senior AI Scientist</h3>
+                                    <p class="experience-company">CIBC</p>
+                                    <div class="experience-meta">
+                                        <span><i class="fas fa-calendar"></i> 2020 - Present</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
+                                    </div>
+                                </div>
                                 <ul class="experience-details">
                                     <li>Designed and implemented Retrieval-Augmented Generation (RAG) systems using vector databases, improving information retrieval accuracy by 35% and enabling more context-aware AI interactions.</li>
                                     <li>Implemented robust LLMOps practices, leveraging MLFlow for experiment tracking and Databricks ML for managing machine learning workflows, resulting in a 25% reduction in model deployment time and improved reproducibility of results.</li>
@@ -246,75 +181,81 @@
                                     <li>Built a DistilGPT-2 based Transformer neural network to generate synthetic financial data for downstream ML models.</li>
                                     <li>Managed, trained and interviewed full time employee and interns in Data Science and Software Engineer roles.</li>
                                 </ul>
+                                <button class="expand-toggle">
+                                    <span>Show More</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
                             </div>
                         </div>
 
                         <!-- Experience 2 -->
                         <div class="timeline-item">
-                            <div class="timeline-header" onclick="toggleExperience(this)">
-                                <div class="timeline-icon">
-                                    <i class="fas fa-microscope"></i>
-                                </div>
-                                <div class="timeline-summary">
-                                    <h3>ML Researcher</h3>
-                                    <p class="role">WangLab - Vector Institute</p>
-                                    <p class="date">2020 - 2021</p>
-                                </div>
-                                <div class="timeline-toggle">
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
+                            <div class="timeline-node">
+                                <i class="fas fa-microscope"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content" onclick="toggleExperience(this)">
+                                <div class="experience-header">
+                                    <h3 class="experience-title">ML Researcher</h3>
+                                    <p class="experience-company">WangLab - Vector Institute</p>
+                                    <div class="experience-meta">
+                                        <span><i class="fas fa-calendar"></i> 2020 - 2021</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
+                                    </div>
+                                </div>
                                 <ul class="experience-details">
                                     <li>WangLab is affiliated with Vector Institute and University Health Network - Advised by Bo Wang</li>
                                     <li>Worked on a project at the intersection of Computational Biology, Deep Learning and Natural Language Processing.</li>
                                     <li>Applied Self Supervised Learning, Weak Supervision and Data Programming on MIMIC III database.</li>
                                     <li>Built Transformer based architecture model to improve the accuracy of massively multi-task classification problem.</li>
                                 </ul>
+                                <button class="expand-toggle">
+                                    <span>Show More</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
                             </div>
                         </div>
 
                         <!-- Experience 3 -->
                         <div class="timeline-item">
-                            <div class="timeline-header" onclick="toggleExperience(this)">
-                                <div class="timeline-icon">
-                                    <i class="fas fa-university"></i>
-                                </div>
-                                <div class="timeline-summary">
-                                    <h3>Graduate Machine Learning Researcher</h3>
-                                    <p class="role">University of Toronto</p>
-                                    <p class="date">2018 - 2020</p>
-                                </div>
-                                <div class="timeline-toggle">
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
+                            <div class="timeline-node">
+                                <i class="fas fa-university"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content" onclick="toggleExperience(this)">
+                                <div class="experience-header">
+                                    <h3 class="experience-title">Graduate Machine Learning Researcher</h3>
+                                    <p class="experience-company">University of Toronto</p>
+                                    <div class="experience-meta">
+                                        <span><i class="fas fa-calendar"></i> 2018 - 2020</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
+                                    </div>
+                                </div>
                                 <ul class="experience-details">
                                     <li>Responsible for developing and building cutting edge state of the art deep learning based recommendation system.</li>
                                     <li>Built a Deep Learning-based Recommendation System for Wolseley's e-commerce website from scratch to production.</li>
                                     <li>Dataset is massive involving more than 200,000 unique customers and 500,000 unique SKUs.</li>
                                     <li>Achieved a personalized NDCG score of 72.4% and improved the One-Product Hit Ratio to 100%.</li>
                                 </ul>
+                                <button class="expand-toggle">
+                                    <span>Show More</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
                             </div>
                         </div>
 
                         <!-- Experience 4 -->
                         <div class="timeline-item">
-                            <div class="timeline-header" onclick="toggleExperience(this)">
-                                <div class="timeline-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="timeline-summary">
-                                    <h3>Data Science/Machine Learning Intern</h3>
-                                    <p class="role">Cybersecurity Research</p>
-                                    <p class="date">Summer 2018 and Summer 2019</p>
-                                </div>
-                                <div class="timeline-toggle">
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
+                            <div class="timeline-node">
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content" onclick="toggleExperience(this)">
+                                <div class="experience-header">
+                                    <h3 class="experience-title">Data Science/Machine Learning Intern</h3>
+                                    <p class="experience-company">Cybersecurity Research</p>
+                                    <div class="experience-meta">
+                                        <span><i class="fas fa-calendar"></i> Summer 2018 and Summer 2019</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
+                                    </div>
+                                </div>
                                 <ul class="experience-details">
                                     <li>Worked with cybersecurity professionals and built a defense mechanism using deep learning and unsupervised learning techniques to prevent cyberattacks.</li>
                                     <li>Built Unsupervised Auto Tagging algorithm and Automatic Rule Synthesis for Octavius.</li>
@@ -322,6 +263,10 @@
                                     <li>Devised a Deep Learning model that detects and prevents the cyberattack before it happens (ProjectX).</li>
                                     <li>Used NLP, Neural Networks, Knowledge Graphs for Keyword Extraction, etc.</li>
                                 </ul>
+                                <button class="expand-toggle">
+                                    <span>Show More</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -828,43 +773,131 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Experience section collapsible functionality
-        function toggleExperience(header) {
-            const item = header.closest('.timeline-item');
-            const content = item.querySelector('.timeline-content');
-            const wasActive = item.classList.contains('active');
-            
-            // Close all other items
-            document.querySelectorAll('.timeline-item').forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    const otherContent = otherItem.querySelector('.timeline-content');
-                    otherItem.classList.remove('active');
-                    if (otherContent) {
-                        otherContent.style.opacity = '0';
-                        setTimeout(() => {
-                            otherContent.style.maxHeight = '0';
-                        }, 50);
-                    }
-                }
-            });
+        // Experience section expand/collapse functionality
+        function toggleExperience(content) {
+            const isExpanded = content.classList.contains('expanded');
+            const button = content.querySelector('.expand-toggle');
+            const buttonText = button.querySelector('span');
+            const icon = button.querySelector('i');
 
-            // Toggle the clicked item
-            if (!wasActive) {
-                // Expand
-                item.classList.add('active');
-                if (content) {
-                    content.style.opacity = '1';
-                }
+            if (!isExpanded) {
+                content.classList.add('expanded');
+                buttonText.textContent = 'Show Less';
+                icon.style.transform = 'rotate(180deg)';
             } else {
-                // Collapse
-                if (content) {
-                    content.style.opacity = '0';
-                    setTimeout(() => {
-                        item.classList.remove('active');
-                    }, 300);
-                }
+                content.classList.remove('expanded');
+                buttonText.textContent = 'Show More';
+                icon.style.transform = 'rotate(0deg)';
             }
         }
+
+        // AI-Powered Name Animation
+        function initAINameAnimation() {
+            const nameElement = document.getElementById('animated-name');
+            if (!nameElement) return;
+
+            const originalText = nameElement.textContent;
+
+            // Add processing class for the scanning effect
+            nameElement.classList.add('ai-processing');
+
+            // Wait for scan to start, then reveal characters
+            setTimeout(() => {
+                nameElement.innerHTML = '';
+
+                // Create individual character spans
+                originalText.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.className = 'name-char';
+                    span.textContent = char === ' ' ? '\u00A0' : char; // Non-breaking space
+                    span.style.animationDelay = `${0.3 + (index * 0.08)}s`;
+                    nameElement.appendChild(span);
+                });
+            }, 500);
+        }
+
+        // Enhanced AI Typewriter Animation
+        class AITypeWriter {
+            constructor(element, words, wait = 2500) {
+                this.element = element;
+                this.words = words;
+                this.txt = '';
+                this.wordIndex = 0;
+                this.wait = parseInt(wait, 10);
+                this.isDeleting = false;
+                this.charIndex = 0;
+                this.type();
+            }
+
+            type() {
+                const current = this.wordIndex % this.words.length;
+                const fullTxt = this.words[current];
+
+                // Add processing effect
+                this.element.classList.add('processing');
+                setTimeout(() => {
+                    this.element.classList.remove('processing');
+                }, 200);
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                // Create character-by-character reveal
+                this.element.innerHTML = '';
+                this.txt.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.className = 'char-reveal';
+                    span.textContent = char;
+                    span.style.animationDelay = `${index * 0.02}s`;
+                    this.element.appendChild(span);
+                });
+
+                let typeSpeed = this.isDeleting ? 50 : 120;
+
+                // Add some randomness for more human-like typing
+                typeSpeed += Math.random() * 50;
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    typeSpeed = this.wait;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.wordIndex++;
+                    typeSpeed = 800; // Pause before next word
+                }
+
+                setTimeout(() => this.type(), typeSpeed);
+            }
+        }
+
+        // Initialize AI animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Initialize AI name animation
+                initAINameAnimation();
+
+                // Initialize AI typewriter
+                const typeWriterElement = document.getElementById('typewriter-text');
+                const words = ['Senior AI Scientist', 'AI/ML Engineer', 'Researcher', 'Co-Founder', 'CTO'];
+
+                if (typeWriterElement) {
+                    // Start typewriter after name animation completes
+                    setTimeout(() => {
+                        new AITypeWriter(typeWriterElement, words, 2500);
+                    }, 2500);
+                }
+            } catch (error) {
+                console.log('Animation initialization failed, using fallback');
+                // Fallback: ensure name is visible
+                const nameElement = document.getElementById('animated-name');
+                if (nameElement) {
+                    nameElement.style.opacity = '1';
+                }
+            }
+        });
 
         // No need for resize handler since we're using CSS to control visibility
     </script>
