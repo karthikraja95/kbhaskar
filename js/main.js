@@ -131,114 +131,91 @@ if (skillsSection) {
     observeSkills.observe(skillsSection);
 }
 
-// Header Scroll Effect
+// Enhanced Header Scroll Effect
 let lastScroll = 0;
-const scrollThreshold = 100;
+const scrollThreshold = 50;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
-    // Add background blur based on scroll position
-    if (currentScroll > 0) {
-        header.style.backgroundColor = body.classList.contains('dark-mode') 
-            ? 'rgba(0, 0, 0, 0.85)' 
-            : 'rgba(255, 255, 255, 0.85)';
+
+    // Add scrolled class for modern styling
+    if (currentScroll > 50) {
+        header.classList.add('scrolled');
     } else {
-        header.style.backgroundColor = body.classList.contains('dark-mode')
-            ? 'rgba(0, 0, 0, 0.8)'
-            : 'rgba(255, 255, 255, 0.8)';
+        header.classList.remove('scrolled');
     }
 
-    // Hide/show header based on scroll direction
+    // Smooth hide/show header based on scroll direction
     if (Math.abs(currentScroll - lastScroll) < scrollThreshold) {
         return;
     }
 
     if (currentScroll > lastScroll && currentScroll > 100) {
-        // Scrolling down
+        // Scrolling down - hide header
         header.style.transform = 'translateY(-100%)';
     } else {
-        // Scrolling up
+        // Scrolling up - show header
         header.style.transform = 'translateY(0)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for Apple-style reveal animations
 const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.1
 };
 
-const fadeInElements = document.querySelectorAll('.timeline-item, .project-card, .publication-item, .skill-item');
+const revealSelector = '.timeline-item, .project-card, .publication-item, .skill-item';
+const fadeInElements = document.querySelectorAll(revealSelector);
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Prepare elements for reveal
+fadeInElements.forEach(el => {
+    el.classList.add('reveal-up');
+    if (prefersReducedMotion) {
+        el.classList.add('is-visible');
+    }
+});
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Set initial state and observe elements
-fadeInElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(element);
-});
-
-// Parallax effect for profile image
-const profileImage = document.querySelector('.profile-image');
-if (profileImage) {
-    window.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const { innerWidth, innerHeight } = window;
-        
-        const moveX = (clientX - innerWidth / 2) / innerWidth * 15;
-        const moveY = (clientY - innerHeight / 2) / innerHeight * 15;
-        
-        profileImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
+if (!prefersReducedMotion) {
+    fadeInElements.forEach(el => observer.observe(el));
 }
 
-// Hover effect for cards
+// Parallax effect for profile image (subtle, rAF-smoothed)
+const profileImage = document.querySelector('.profile-image');
+if (profileImage) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+        let rafId;
+        window.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const { innerWidth, innerHeight } = window;
+            const moveX = ((clientX - innerWidth / 2) / innerWidth) * 6;
+            const moveY = ((clientY - innerHeight / 2) / innerHeight) * 6;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+                profileImage.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+            });
+        });
+    }
+}
+
+// Hover effect for cards (subtle elevation via CSS)
 document.querySelectorAll('.project-card, .publication-item, .skill-item').forEach(card => {
-    card.addEventListener('mouseenter', (e) => {
-        const cardRect = card.getBoundingClientRect();
-        const x = e.clientX - cardRect.left;
-        const y = e.clientY - cardRect.top;
-        
-        const centerX = cardRect.width / 2;
-        const centerY = cardRect.height / 2;
-        
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-    
-    card.addEventListener('mousemove', (e) => {
-        const cardRect = card.getBoundingClientRect();
-        const x = e.clientX - cardRect.left;
-        const y = e.clientY - cardRect.top;
-        
-        const centerX = cardRect.width / 2;
-        const centerY = cardRect.height / 2;
-        
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    });
+    card.addEventListener('mouseenter', () => card.classList.add('hovering'));
+    card.addEventListener('mouseleave', () => card.classList.remove('hovering'));
 });
 
 // Add smooth transition when loading page
@@ -493,4 +470,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-}); 
+
+    // Initialize AI animations
+    initNameAnimation();
+    initTypewriter();
+});
+
+// Simple Name - no animation needed
+function initNameAnimation() {
+    // Name is already in HTML, no animation needed
+}
+
+// Simple Typewriter Effect
+function initTypewriter() {
+    const typewriterElement = document.querySelector('.typewriter-text');
+    if (!typewriterElement) return;
+
+    const titles = [
+        'Senior AI Scientist',
+        'ML Researcher',
+        'AI Engineer',
+        'Co-Founder',
+        'CTO',
+        'Researcher'
+    ];
+
+    let currentIndex = 0;
+    let currentText = '';
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    function typeEffect() {
+        const currentTitle = titles[currentIndex];
+
+        if (isDeleting) {
+            currentText = currentTitle.substring(0, currentText.length - 1);
+            typeSpeed = 50;
+        } else {
+            currentText = currentTitle.substring(0, currentText.length + 1);
+            typeSpeed = 100;
+        }
+
+        typewriterElement.textContent = currentText;
+
+        if (!isDeleting && currentText === currentTitle) {
+            typeSpeed = 2000; // Pause at end
+            isDeleting = true;
+        } else if (isDeleting && currentText === '') {
+            isDeleting = false;
+            currentIndex = (currentIndex + 1) % titles.length;
+            typeSpeed = 500; // Pause before next title
+        }
+
+        setTimeout(typeEffect, typeSpeed);
+    }
+
+    // Start immediately
+    typeEffect();
+}
