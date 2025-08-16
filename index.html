@@ -78,6 +78,18 @@
                             </div>
                         </div>
 
+                        <div class="interests-section">
+                            <h3>Research Interests</h3>
+                            <ul class="interests-list">
+                                <li><i class="fas fa-brain"></i>Large Language Models</li>
+                                <li><i class="fas fa-network-wired"></i>Deep Learning</li>
+                                <li><i class="fas fa-language"></i>Natural Language Processing</li>
+                                <li><i class="fas fa-robot"></i>Deep Reinforcement Learning</li>
+                                <li><i class="fas fa-shield-alt"></i>Privacy Preserved ML</li>
+                                <li><i class="fas fa-thumbs-up"></i>Recommender Systems</li>
+                            </ul>
+                        </div>
+
                         <div class="cta-buttons">
                             <a href="#skills" class="btn primary-btn">
                                 <i class="fas fa-project-diagram"></i>
@@ -105,18 +117,22 @@
                     <!-- Right Column: Bio Content -->
                     <div class="profile-content">
                         <div class="intro-text">
-                            <span class="greeting">Hi, I'm</span>
-                            <h1><span class="highlight animated-name" id="animated-name">Karthik Bhaskar</span></h1>
-                            <h2>
-                                <div class="typewriter-container">
-                                    <span class="typewriter-text" id="typewriter-text"></span><span class="ai-cursor"></span>
-                                </div>
-                            </h2>
+                            <canvas id="particles-canvas" class="particles-canvas"></canvas>
+                            <div class="intro-text-content">
+                                <span class="greeting">Hi, I'm</span>
+                                <h1><span class="highlight animated-name" id="animated-name">Karthik Bhaskar</span></h1>
+                                <h2>
+                                    <div class="ai-title-container">
+                                        <span class="ai-title-text" id="ai-title-text"></span>
+                                        <span class="ai-cursor"></span>
+                                    </div>
+                                </h2>
+                            </div>
                         </div>
                         
                         <div class="bio-section">
                             <h3>About Me</h3>
-                            <p class="bio">I am a <strong>Senior AI Scientist</strong> at <a href="https://www.cibc.com" target="_blank">CIBC</a>. Previously, I worked as a <strong>ML Researcher</strong> at <a href="https://www.wanglab.ai" target="_blank">WangLab</a> affiliated with <a href="https://www.vectorinstitute.ai" target="_blank">Vector Institute</a> and <a href="https://www.uhn.ca" target="_blank">University Health Network</a>, proudly advised by <em>Prof. <a href="https://vectorinstitute.ai/team/bo-wang/" target="_blank">Bo Wang</a></em>.</p>
+                            <p class="bio">I am a <strong>Senior AI Scientist</strong> at <a href="https://www.cibc.com" target="_blank">CIBC</a>, <strong>CTO</strong> of <a href="https://www.slatehq.ai" target="_blank">Slate</a>, and <strong>CEO & Managing Director</strong> of <a href="https://www.neurosage.ai" target="_blank">NeuroSage</a>. Previously, I worked as a <strong>ML Researcher</strong> at <a href="https://www.wanglab.ai" target="_blank">WangLab</a> affiliated with <a href="https://www.vectorinstitute.ai" target="_blank">Vector Institute</a> and <a href="https://www.uhn.ca" target="_blank">University Health Network</a>, proudly advised by <em>Prof. <a href="https://vectorinstitute.ai/team/bo-wang/" target="_blank">Bo Wang</a></em>.</p>
                             
                             <p class="bio">I completed my Master's degree in ECE, specialized in <strong>Machine Learning</strong> at the University of Toronto advised by <em>Prof. <a href="https://www.comm.utoronto.ca/dkundur/about/" target="_blank">Deepa Kundur</a></em> and by <em>Prof. <a href="https://www.cmte.utoronto.ca/people/sowlati" target="_blank">Yuri Lawryshyn</a></em>. In my free time I work on projects at the intersection of <strong>Deep Learning, Natural Language Processing and Healthcare</strong>. Apart from that, I am also interested in <strong>Large Language Models</strong> and <strong>Deep Reinforcement Learning</strong>.</p>
                             
@@ -127,17 +143,7 @@
                             <p class="bio">Throughout my life, I have approached every challenge with enthusiasm, creativity, and a ceaseless desire to achieve success. This passion and drive have paved the way to countless opportunities, unique experiences, and excellent relationships, both personally and professionally. I enjoy working with people and discussing ideas.</p>
                         </div>
 
-                        <div class="interests-section">
-                            <h3>Research Interests</h3>
-                            <ul class="interests-list">
-                                <li><i class="fas fa-brain"></i>Large Language Models</li>
-                                <li><i class="fas fa-network-wired"></i>Deep Learning</li>
-                                <li><i class="fas fa-language"></i>Natural Language Processing</li>
-                                <li><i class="fas fa-robot"></i>Deep Reinforcement Learning</li>
-                                <li><i class="fas fa-shield-alt"></i>Privacy Preserved ML</li>
-                                <li><i class="fas fa-thumbs-up"></i>Recommender Systems</li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -879,14 +885,15 @@
                 // Initialize AI name animation
                 initAINameAnimation();
 
-                // Initialize AI typewriter
-                const typeWriterElement = document.getElementById('typewriter-text');
-                const words = ['Senior AI Scientist', 'AI/ML Engineer', 'Researcher', 'Co-Founder', 'CTO'];
+                // Initialize Neural Network
+                const neuralCanvas = document.getElementById('neural-canvas');
+                const neuralOutput = document.getElementById('neural-title-output');
 
-                if (typeWriterElement) {
-                    // Start typewriter after name animation completes
+                if (neuralCanvas && neuralOutput) {
+                    // Start neural network after name animation completes
                     setTimeout(() => {
-                        new AITypeWriter(typeWriterElement, words, 2500);
+                        // Neural network is initialized in main.js
+                        console.log('Neural network animation ready');
                     }, 2500);
                 }
             } catch (error) {
