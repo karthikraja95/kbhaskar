@@ -51,6 +51,33 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Projects Animation on Scroll
+const observeProjects = () => {
+    const projectCards = document.querySelectorAll('.project-card');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('animate-in');
+                }, index * 100); // Staggered animation
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    projectCards.forEach(card => {
+        observer.observe(card);
+    });
+};
+
+// Initialize projects animation when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    observeProjects();
+});
+
 // Smooth Scroll with offset
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -380,12 +407,16 @@ projectCards.forEach(card => {
     });
 });
 
-closeModal.addEventListener('click', closeProjectModal);
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeProjectModal();
-    }
-});
+if (closeModal) {
+    closeModal.addEventListener('click', closeProjectModal);
+}
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeProjectModal();
+        }
+    });
+}
 
 // Close modal on escape key
 document.addEventListener('keydown', (e) => {
@@ -473,7 +504,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize AI animations
     initNameAnimation();
-    initTypewriter();
+    initFloatingParticles();
+
+    // Initialize AI title typewriter with a small delay to ensure DOM is ready
+    setTimeout(() => {
+        initAITitleTypewriter();
+    }, 100);
 });
 
 // Simple Name - no animation needed
@@ -481,50 +517,272 @@ function initNameAnimation() {
     // Name is already in HTML, no animation needed
 }
 
-// Simple Typewriter Effect
-function initTypewriter() {
-    const typewriterElement = document.querySelector('.typewriter-text');
-    if (!typewriterElement) return;
+// AI Title Typewriter Animation
+function initAITitleTypewriter() {
+    console.log('Initializing AI title typewriter...');
+    const titleText = document.getElementById('ai-title-text');
+    const cursor = document.querySelector('.ai-cursor');
+
+    if (!titleText) {
+        console.log('AI title elements not found');
+        return;
+    }
+
+    console.log('AI title elements found, starting typewriter animation...');
 
     const titles = [
         'Senior AI Scientist',
+        'CTO & Co-Founder',
+        'CEO & Entrepreneur',
         'ML Researcher',
-        'AI Engineer',
-        'Co-Founder',
-        'CTO',
-        'Researcher'
+        'AI/ML Engineer',
+        'Technology Leader'
     ];
 
-    let currentIndex = 0;
-    let currentText = '';
+    let currentTitleIndex = 0;
+    let currentCharIndex = 0;
+    let isTyping = true;
     let isDeleting = false;
-    let typeSpeed = 100;
 
-    function typeEffect() {
-        const currentTitle = titles[currentIndex];
+    function typeWriter() {
+        const currentTitle = titles[currentTitleIndex];
 
-        if (isDeleting) {
-            currentText = currentTitle.substring(0, currentText.length - 1);
-            typeSpeed = 50;
-        } else {
-            currentText = currentTitle.substring(0, currentText.length + 1);
-            typeSpeed = 100;
+        if (isTyping && !isDeleting) {
+            // Typing phase
+            if (currentCharIndex < currentTitle.length) {
+                titleText.textContent = currentTitle.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+                setTimeout(typeWriter, 100 + Math.random() * 50); // Variable typing speed
+            } else {
+                // Finished typing, wait then start deleting
+                isTyping = false;
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeWriter();
+                }, 2000); // Pause before deleting
+            }
+        } else if (isDeleting) {
+            // Deleting phase
+            if (currentCharIndex > 0) {
+                titleText.textContent = currentTitle.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+                setTimeout(typeWriter, 50); // Faster deleting
+            } else {
+                // Finished deleting, move to next title
+                isDeleting = false;
+                isTyping = true;
+                currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+                setTimeout(typeWriter, 500); // Pause before next title
+            }
         }
-
-        typewriterElement.textContent = currentText;
-
-        if (!isDeleting && currentText === currentTitle) {
-            typeSpeed = 2000; // Pause at end
-            isDeleting = true;
-        } else if (isDeleting && currentText === '') {
-            isDeleting = false;
-            currentIndex = (currentIndex + 1) % titles.length;
-            typeSpeed = 500; // Pause before next title
-        }
-
-        setTimeout(typeEffect, typeSpeed);
     }
 
-    // Start immediately
-    typeEffect();
+    // Start the typewriter animation
+    setTimeout(typeWriter, 1000);
+
+}
+
+// Floating Data Particles Animation
+function initFloatingParticles() {
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) {
+        console.log('Particles canvas not found');
+        return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+        console.log('Particles canvas context not available');
+        return;
+    }
+
+    let particles = [];
+    let connections = [];
+    let animationId;
+
+    // AI-themed particle configuration
+    const config = {
+        particleCount: 30,
+        maxDistance: 120,
+        particleSpeed: 0.4,
+        particleSize: 3.5,
+        connectionOpacity: 0.25,
+        particleOpacity: 0.6,
+        dataSymbols: ['0', '1', 'AI', '∞', '◊', '●', '▲', '■'],
+        colors: {
+            particle: 'rgba(0, 122, 255, 0.7)',
+            connection: 'rgba(0, 122, 255, 0.3)',
+            data: 'rgba(0, 122, 255, 0.6)'
+        }
+    };
+
+    // Get theme-aware colors
+    function getThemeColors() {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        return {
+            particle: isDarkMode ? 'rgba(10, 132, 255, 0.9)' : 'rgba(0, 122, 255, 0.8)',
+            connection: isDarkMode ? 'rgba(10, 132, 255, 0.4)' : 'rgba(0, 122, 255, 0.3)'
+        }
+    };
+
+    // AI-themed Particle class
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.vx = (Math.random() - 0.5) * config.particleSpeed;
+            this.vy = (Math.random() - 0.5) * config.particleSpeed;
+            this.size = Math.random() * config.particleSize + 1;
+            this.opacity = Math.random() * config.particleOpacity + 0.3;
+            this.pulsePhase = Math.random() * Math.PI * 2;
+            this.isDataSymbol = Math.random() < 0.3; // 30% chance to be a data symbol
+            this.symbol = this.isDataSymbol ? config.dataSymbols[Math.floor(Math.random() * config.dataSymbols.length)] : null;
+            this.rotation = Math.random() * Math.PI * 2;
+            this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce off edges
+            if (this.x <= 0 || this.x >= canvas.width) this.vx *= -1;
+            if (this.y <= 0 || this.y >= canvas.height) this.vy *= -1;
+
+            // Keep within bounds
+            this.x = Math.max(0, Math.min(canvas.width, this.x));
+            this.y = Math.max(0, Math.min(canvas.height, this.y));
+
+            // Update pulse and rotation
+            this.pulsePhase += 0.02;
+            this.rotation += this.rotationSpeed;
+        }
+
+        draw() {
+            const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7;
+            const currentSize = this.size * pulse;
+            const currentOpacity = this.opacity * pulse;
+            const colors = getThemeColors();
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            const baseColor = isDarkMode ? '10, 132, 255' : '0, 122, 255';
+
+            if (this.isDataSymbol && this.symbol) {
+                // Draw data symbol
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+
+                ctx.font = `${currentSize * 10}px 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = `rgba(${baseColor}, ${currentOpacity})`;
+                ctx.fillText(this.symbol, 0, 0);
+
+                // Add glow effect
+                ctx.shadowColor = `rgba(${baseColor}, ${currentOpacity * 0.5})`;
+                ctx.shadowBlur = currentSize * 2;
+                ctx.fillText(this.symbol, 0, 0);
+
+                ctx.restore();
+            } else {
+                // Draw regular particle
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentSize, 0, Math.PI * 2);
+
+                // Create gradient for glow effect
+                const gradient = ctx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, currentSize * 3
+                );
+
+                gradient.addColorStop(0, `rgba(${baseColor}, ${currentOpacity})`);
+                gradient.addColorStop(0.5, `rgba(${baseColor}, ${currentOpacity * 0.5})`);
+                gradient.addColorStop(1, `rgba(${baseColor}, 0)`);
+
+                ctx.fillStyle = gradient;
+                ctx.fill();
+            }
+        }
+    }
+
+    // Initialize particles
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < config.particleCount; i++) {
+            particles.push(new Particle(
+                Math.random() * canvas.width,
+                Math.random() * canvas.height
+            ));
+        }
+    }
+
+    // Find connections between particles
+    function updateConnections() {
+        connections = [];
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < config.maxDistance) {
+                    const opacity = (1 - distance / config.maxDistance) * config.connectionOpacity;
+                    connections.push({
+                        p1: particles[i],
+                        p2: particles[j],
+                        opacity: opacity
+                    });
+                }
+            }
+        }
+    }
+
+    // Draw connections
+    function drawConnections() {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        const baseColor = isDarkMode ? '10, 132, 255' : '0, 122, 255';
+
+        connections.forEach(connection => {
+            ctx.beginPath();
+            ctx.moveTo(connection.p1.x, connection.p1.y);
+            ctx.lineTo(connection.p2.x, connection.p2.y);
+            ctx.strokeStyle = `rgba(${baseColor}, ${connection.opacity})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        });
+    }
+
+    // Animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Update particles
+        particles.forEach(particle => particle.update());
+
+        // Update connections
+        updateConnections();
+
+        // Draw connections first (behind particles)
+        drawConnections();
+
+        // Draw particles
+        particles.forEach(particle => particle.draw());
+
+        animationId = requestAnimationFrame(animate);
+    }
+
+    // Resize canvas
+    function resizeCanvas() {
+        const container = canvas.parentElement;
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+        createParticles();
+    }
+
+    // Initialize
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    animate();
+
+    console.log('Floating particles initialized');
 }
