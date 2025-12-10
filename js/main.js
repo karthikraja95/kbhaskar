@@ -597,6 +597,28 @@ function initAITitleTypewriter() {
 
 }
 
+// Past Projects Toggle functionality
+const pastProjectsToggle = document.getElementById('pastProjectsToggle');
+const pastProjectsGrid = document.getElementById('pastProjectsGrid');
+
+if (pastProjectsToggle && pastProjectsGrid) {
+    pastProjectsToggle.addEventListener('click', () => {
+        const isCollapsed = pastProjectsGrid.classList.contains('collapsed');
+
+        if (isCollapsed) {
+            pastProjectsGrid.classList.remove('collapsed');
+            pastProjectsToggle.classList.remove('collapsed');
+            pastProjectsToggle.querySelector('span').textContent = 'Hide Projects';
+            pastProjectsToggle.setAttribute('aria-expanded', 'true');
+        } else {
+            pastProjectsGrid.classList.add('collapsed');
+            pastProjectsToggle.classList.add('collapsed');
+            pastProjectsToggle.querySelector('span').textContent = 'Show Projects';
+            pastProjectsToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
 // Back to Top Button functionality
 const backToTopButton = document.getElementById('backToTop');
 
