@@ -250,30 +250,45 @@ window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
-// Citation copy functionality
-function copyToClipboard(elementId) {
+// Citation copy functionality (using modern Clipboard API)
+async function copyToClipboard(elementId) {
     const citationText = document.getElementById(elementId);
     const citation = citationText.textContent.trim();
-    
-    // Create a temporary textarea element to copy the text
-    const textarea = document.createElement('textarea');
-    textarea.value = citation;
-    document.body.appendChild(textarea);
-    textarea.select();
-    
+    const button = document.querySelector(`#${elementId}`).previousElementSibling;
+    const originalText = button.innerHTML;
+
     try {
-        document.execCommand('copy');
+        // Use modern Clipboard API
+        await navigator.clipboard.writeText(citation);
+
         // Show success message
-        const button = document.querySelector(`#${elementId}`).previousElementSibling;
-        const originalText = button.innerHTML;
         button.innerHTML = '<i class="fas fa-check"></i> Copied!';
         setTimeout(() => {
             button.innerHTML = originalText;
         }, 2000);
     } catch (err) {
-        console.error('Failed to copy text:', err);
-    } finally {
-        document.body.removeChild(textarea);
+        // Fallback for older browsers or if permission denied
+        try {
+            const textarea = document.createElement('textarea');
+            textarea.value = citation;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+                button.innerHTML = originalText;
+            }, 2000);
+        } catch (fallbackErr) {
+            console.error('Failed to copy text:', fallbackErr);
+            button.innerHTML = '<i class="fas fa-times"></i> Failed';
+            setTimeout(() => {
+                button.innerHTML = originalText;
+            }, 2000);
+        }
     }
 }
 
@@ -580,6 +595,28 @@ function initAITitleTypewriter() {
     // Start the typewriter animation
     setTimeout(typeWriter, 1000);
 
+}
+
+// Back to Top Button functionality
+const backToTopButton = document.getElementById('backToTop');
+
+if (backToTopButton) {
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when clicked
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 // Floating Data Particles Animation
