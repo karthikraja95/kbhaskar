@@ -1990,13 +1990,247 @@ a:hover {
   }
 }
 
+/* Projects Category Layout */
+.projects-category {
+  margin-bottom: 3rem;
+}
+
+.projects-category:last-child {
+  margin-bottom: 0;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-base);
+}
+
+.category-header:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.category-icon i {
+  font-size: var(--font-size-xl);
+  color: var(--primary-color);
+}
+
+.category-info {
+  flex: 1;
+}
+
+.category-info h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.category-info p {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.category-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.category-toggle:hover {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+  border-color: var(--primary-color);
+}
+
+.category-toggle i {
+  transition: var(--transition-base);
+}
+
+.category-toggle.collapsed i {
+  transform: rotate(-90deg);
+}
+
+/* Coming Soon Card */
+.coming-soon-card {
+  background: linear-gradient(135deg, var(--primary-light) 0%, rgba(88, 86, 214, 0.1) 100%);
+  border: 2px dashed var(--primary-color);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.05) 0%, transparent 70%);
+  animation: pulse-bg 4s ease-in-out infinite;
+}
+
+@keyframes pulse-bg {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.coming-soon-content {
+  position: relative;
+  z-index: 1;
+}
+
+.coming-soon-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.coming-soon-icon i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  animation: bubble 2s ease-in-out infinite;
+}
+
+@keyframes bubble {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.coming-soon-content h4 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.coming-soon-content p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+}
+
+.coming-soon-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.coming-soon-tags .tag {
+  background: var(--surface);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-light);
+  transition: var(--transition-base);
+}
+
+.coming-soon-tags .tag:hover {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Project Tag */
+.project-tag {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.75rem;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
   position: relative;
   z-index: 1;
+  transition: var(--transition-slow);
+}
+
+.projects-grid.collapsed {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .category-header {
+    flex-wrap: wrap;
+  }
+
+  .category-toggle {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .coming-soon-card {
+    padding: 2rem;
+  }
+
+  .coming-soon-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .coming-soon-icon i {
+    font-size: 1.5rem;
+  }
 }
 
 .project-card {

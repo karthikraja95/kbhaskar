@@ -196,6 +196,60 @@
   color: var(--text-inverse);
 }
 
+/* Dark Mode Project Categories */
+.dark-mode .category-header {
+  background: var(--surface-elevated);
+  border-color: var(--border-light);
+}
+
+.dark-mode .category-header:hover {
+  border-color: var(--border-medium);
+}
+
+.dark-mode .category-icon {
+  background: var(--primary-light);
+}
+
+.dark-mode .category-toggle {
+  background: var(--bg-secondary);
+  border-color: var(--border-light);
+  color: var(--text-secondary);
+}
+
+.dark-mode .category-toggle:hover {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+  border-color: var(--primary-color);
+}
+
+/* Dark Mode Coming Soon Card */
+.dark-mode .coming-soon-card {
+  background: linear-gradient(135deg, var(--primary-light) 0%, rgba(94, 92, 230, 0.15) 100%);
+  border-color: var(--primary-color);
+}
+
+.dark-mode .coming-soon-icon {
+  background: var(--surface-elevated);
+}
+
+.dark-mode .coming-soon-tags .tag {
+  background: var(--surface-elevated);
+  color: var(--primary-color);
+  border-color: var(--border-light);
+}
+
+.dark-mode .coming-soon-tags .tag:hover {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+  border-color: var(--primary-color);
+}
+
+/* Dark Mode Project Tag */
+.dark-mode .project-tag {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
 /* Dark Mode Timeline & Projects */
 .dark-mode .timeline-content,
 .dark-mode .project-card,
