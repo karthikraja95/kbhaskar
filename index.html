@@ -319,103 +319,151 @@
         <section id="projects" class="section">
             <div class="container">
                 <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <h3>Multi-Agent Deep Deterministic Policy Gradient</h3>
-                        <a href="https://github.com/karthikraja95/DeepRL-Collaboration-Competition" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
 
-                    <!-- Project 2 -->
-                    <div class="project-card">
-                        <h3>Defense GAN & Physical Adversarial Examples</h3>
-                        <a href="https://github.com/karthikraja95/Tranferability_of_DEFENSE-GAN_to_Physical_Adversarial_Examples" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
+                <!-- LLM & Agentic AI - Featured/Upcoming -->
+                <div class="projects-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>LLM & Agentic AI</h3>
+                            <p>Large Language Models, RAG Systems, and AI Agents</p>
+                        </div>
                     </div>
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-content">
+                            <div class="coming-soon-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h4>Coming Soon</h4>
+                            <p>Currently building projects exploring LLM applications, Agentic AI systems, and RAG architectures. Stay tuned for exciting new work in this space!</p>
+                            <div class="coming-soon-tags">
+                                <span class="tag">LangChain</span>
+                                <span class="tag">RAG</span>
+                                <span class="tag">AI Agents</span>
+                                <span class="tag">GPT</span>
+                                <span class="tag">LlamaIndex</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Project 3 -->
-                    <div class="project-card">
-                        <h3>Deep Deterministic Policy Gradient</h3>
-                        <a href="https://github.com/karthikraja95/Deep-Reinforcement-Learning-Continuous-Control" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
+                <!-- Research & Past Work -->
+                <div class="projects-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-archive"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>Research & Past Work</h3>
+                            <p>Deep Reinforcement Learning, Computer Vision, and ML Projects</p>
+                        </div>
+                        <button class="category-toggle" id="pastProjectsToggle" aria-expanded="true" aria-controls="pastProjectsGrid">
+                            <span>Show Projects</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                     </div>
+                    <div class="projects-grid" id="pastProjectsGrid">
+                        <!-- Deep RL Projects -->
+                        <div class="project-card" data-category="rl">
+                            <span class="project-tag">Deep RL</span>
+                            <h3>Multi-Agent Deep Deterministic Policy Gradient</h3>
+                            <a href="https://github.com/karthikraja95/DeepRL-Collaboration-Competition" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 4 -->
-                    <div class="project-card">
-                        <h3>Human Like Chess Engine</h3>
-                        <a href="https://github.com/karthikraja95/Human-Like-Chess-Engine" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <div class="project-card" data-category="rl">
+                            <span class="project-tag">Deep RL</span>
+                            <h3>Deep Deterministic Policy Gradient</h3>
+                            <a href="https://github.com/karthikraja95/Deep-Reinforcement-Learning-Continuous-Control" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 5 -->
-                    <div class="project-card">
-                        <h3>Navigation: Deep Q Networks</h3>
-                        <a href="https://github.com/karthikraja95/Deep-Reinforcement-Learning-Navigation" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <div class="project-card" data-category="rl">
+                            <span class="project-tag">Deep RL</span>
+                            <h3>Navigation: Deep Q Networks</h3>
+                            <a href="https://github.com/karthikraja95/Deep-Reinforcement-Learning-Navigation" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 6 -->
-                    <div class="project-card">
-                        <h3>Detecting Deforestation from Satellite Images</h3>
-                        <a href="https://github.com/karthikraja95/fsdl_deforestation_detection" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <div class="project-card" data-category="rl">
+                            <span class="project-tag">Deep RL</span>
+                            <h3>Human Like Chess Engine</h3>
+                            <a href="https://github.com/karthikraja95/Human-Like-Chess-Engine" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 7 -->
-                    <div class="project-card">
-                        <h3>Hyper Face</h3>
-                        <a href="https://github.com/karthikraja95/HyperFace" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <!-- Computer Vision Projects -->
+                        <div class="project-card" data-category="cv">
+                            <span class="project-tag">Computer Vision</span>
+                            <h3>Defense GAN & Physical Adversarial Examples</h3>
+                            <a href="https://github.com/karthikraja95/Tranferability_of_DEFENSE-GAN_to_Physical_Adversarial_Examples" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 8 -->
-                    <div class="project-card">
-                        <h3>Self Driving Cars</h3>
-                        <a href="https://github.com/karthikraja95/self_driving_cars" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <div class="project-card" data-category="cv">
+                            <span class="project-tag">Computer Vision</span>
+                            <h3>Detecting Deforestation from Satellite Images</h3>
+                            <a href="https://github.com/karthikraja95/fsdl_deforestation_detection" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 9 -->
-                    <div class="project-card">
-                        <h3>Music Generation</h3>
-                        <a href="https://github.com/karthikraja95/Music_Generation" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <div class="project-card" data-category="cv">
+                            <span class="project-tag">Computer Vision</span>
+                            <h3>Hyper Face</h3>
+                            <a href="https://github.com/karthikraja95/HyperFace" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 10 -->
-                    <div class="project-card">
-                        <h3>Microsoft Malware Detection</h3>
-                        <a href="https://github.com/karthikraja95/kaggle-Microsoft-Malware-Detection" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <div class="project-card" data-category="cv">
+                            <span class="project-tag">Computer Vision</span>
+                            <h3>Self Driving Cars</h3>
+                            <a href="https://github.com/karthikraja95/self_driving_cars" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 11 -->
-                    <div class="project-card">
-                        <h3>Facebook Social Network Graph Prediction</h3>
-                        <a href="https://github.com/karthikraja95/kaggle-Facebook_Challenge" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
-                    </div>
+                        <!-- ML/Data Science Projects -->
+                        <div class="project-card" data-category="ml">
+                            <span class="project-tag">Generative AI</span>
+                            <h3>Music Generation</h3>
+                            <a href="https://github.com/karthikraja95/Music_Generation" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
 
-                    <!-- Project 12 -->
-                    <div class="project-card">
-                        <h3>Google Advertisement Click Prediction</h3>
-                        <a href="https://github.com/karthikraja95/AD-click-prediction" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
+                        <div class="project-card" data-category="ml">
+                            <span class="project-tag">ML/Data Science</span>
+                            <h3>Microsoft Malware Detection</h3>
+                            <a href="https://github.com/karthikraja95/kaggle-Microsoft-Malware-Detection" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
+
+                        <div class="project-card" data-category="ml">
+                            <span class="project-tag">ML/Data Science</span>
+                            <h3>Facebook Social Network Graph Prediction</h3>
+                            <a href="https://github.com/karthikraja95/kaggle-Facebook_Challenge" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
+
+                        <div class="project-card" data-category="ml">
+                            <span class="project-tag">ML/Data Science</span>
+                            <h3>Google Advertisement Click Prediction</h3>
+                            <a href="https://github.com/karthikraja95/AD-click-prediction" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </section>
