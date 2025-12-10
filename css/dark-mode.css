@@ -314,6 +314,36 @@
   color: var(--text-secondary);
 }
 
+/* Dark Mode Contact Section */
+.dark-mode .contact-card {
+  background: var(--surface-elevated);
+  border-color: var(--border-light);
+}
+
+.dark-mode .contact-card:hover {
+  border-color: var(--border-medium);
+}
+
+.dark-mode .contact-intro {
+  color: var(--text-secondary);
+}
+
+/* Dark Mode Back to Top */
+.dark-mode .back-to-top {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+.dark-mode .back-to-top:hover {
+  background: var(--primary-hover);
+}
+
+/* Dark Mode Skip to Content */
+.dark-mode .skip-to-content {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+}
+
 /* Dark Mode Responsive */
 @media (max-width: 768px) {
   .dark-mode .nav-links {
