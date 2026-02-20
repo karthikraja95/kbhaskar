@@ -547,7 +547,7 @@ function initAITitleTypewriter() {
 
     const titles = [
         'Senior AI Scientist',
-        'Former CTO & Co-Founder',
+        'AI Engineering Leader',
         'CEO & Entrepreneur',
         'ML Researcher',
         'AI/ML Engineer',
