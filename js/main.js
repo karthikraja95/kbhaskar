@@ -1,3 +1,34 @@
+// ── Resume Visibility Config ──────────────────────────────────
+// Set SHOW_RESUME to true to always show resume links.
+// Or append ?res=kb95x2026 to the URL to reveal them for that session.
+// RESUME_URL should point to your Google Drive (or other hosted) link.
+const RESUME_CONFIG = {
+    SHOW_RESUME: false,
+    SECRET_PARAM: 'res',
+    SECRET_VALUE: 'kb95x2026',
+    RESUME_URL: 'https://drive.google.com/file/d/1-NPhQ_ckNfbm2ENXXk2n8dYgONzupgQe/view?usp=share_link'
+};
+
+(function initResumeGate() {
+    const params = new URLSearchParams(window.location.search);
+    const unlocked = RESUME_CONFIG.SHOW_RESUME ||
+        params.get(RESUME_CONFIG.SECRET_PARAM) === RESUME_CONFIG.SECRET_VALUE;
+
+    if (unlocked) {
+        const navItem = document.getElementById('resume-nav-item');
+        const downloadBtn = document.getElementById('resume-download-btn');
+
+        if (navItem) {
+            navItem.style.display = '';
+            navItem.querySelector('a').href = RESUME_CONFIG.RESUME_URL;
+        }
+        if (downloadBtn) {
+            downloadBtn.style.display = '';
+            downloadBtn.href = RESUME_CONFIG.RESUME_URL;
+        }
+    }
+})();
+
 // DOM Elements
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
